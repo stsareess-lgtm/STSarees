@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
@@ -13,6 +12,8 @@ import {
 import { heroSlides, type HeroSlide } from "@/config/heroSlides";
 import { useCarouselAutoAdvance } from "@/features/storefront/hooks/useCarouselAutoAdvance";
 import { cn } from "@/lib/utils";
+import { StorefrontImage } from "@/components/media/StorefrontImage";
+import { CDN_PRESETS } from "@/lib/media/cdn-image";
 
 const HERO_AUTOPLAY_MS = 5500;
 
@@ -86,7 +87,7 @@ export function HomeHeroCarousel({ slides }: Props) {
                     className="absolute inset-0 z-[1]"
                     aria-label={`${slide.title} — ${slide.cta}`}
                   />
-                  <Image
+                  <StorefrontImage
                     src={slide.image}
                     alt={slide.imageAlt}
                     fill
@@ -94,6 +95,7 @@ export function HomeHeroCarousel({ slides }: Props) {
                     loading={isFirstSlide ? undefined : "lazy"}
                     sizes="100vw"
                     className="object-cover object-[center_20%] sm:object-center"
+                    cdnOptions={CDN_PRESETS.heroMobile}
                   />
                   <div
                     className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/15"

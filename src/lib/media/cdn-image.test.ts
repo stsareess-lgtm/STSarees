@@ -17,6 +17,11 @@ describe("cdn-image", () => {
     else process.env.NEXT_PUBLIC_CDN_URL = prevCdn;
   });
 
+  it("defaults to cloudflare mode once CF CDN is validated", () => {
+    delete process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE;
+    expect(getImageDeliveryMode()).toBe("cloudflare");
+  });
+
   it("extracts keys from r2.dev and raw paths", () => {
     process.env.NEXT_PUBLIC_CDN_URL =
       "https://pub-351c586a832c41d6816471c888ca13c4.r2.dev";

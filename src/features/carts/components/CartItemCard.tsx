@@ -2,7 +2,6 @@
 import { DocumentType } from "@/gql";
 import { CartItemCardFragment } from "../fragments/CartItemCardFragment";
 
-import Image from "next/image";
 import React from "react";
 
 import QuantityInput from "../../../components/layouts/QuantityInput";
@@ -17,6 +16,7 @@ import {
 
 import { ProductPriceDisplay } from "@/features/products/components/ProductPriceDisplay";
 import { keytoUrl } from "@/lib/utils";
+import { StorefrontImage } from "@/components/media/StorefrontImage";
 import { UseQueryExecute } from "@urql/next";
 import Link from "next/link";
 import { Icons } from "../../../components/layouts/icons";
@@ -57,12 +57,13 @@ function CartItemCard({
   return (
     <Card className="flex items-start gap-3 border-0 bg-transparent px-3 py-3 shadow-none md:items-center md:gap-6 md:px-5">
       <CardContent className="relative shrink-0 overflow-hidden p-0">
-        <Image
+        <StorefrontImage
           src={keytoUrl(product.featuredImage.key)}
           alt={product.featuredImage.alt}
           width={150}
           height={150}
           className="aspect-square h-[72px] w-[72px] rounded-md object-cover md:h-[120px] md:w-[120px]"
+          optimizeWidth={200}
         />
       </CardContent>
 

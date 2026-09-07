@@ -57,6 +57,20 @@ const nextConfig = {
             },
           ]
         : []),
+      // Cloudflare Images resize via media-proxy Worker
+      {
+        protocol: "https",
+        hostname: "sakthi-textile-media-proxy.stsareess.workers.dev",
+      },
+      ...(process.env.NEXT_PUBLIC_MEDIA_CDN_ORIGIN
+        ? [
+            {
+              protocol: "https",
+              hostname: new URL(process.env.NEXT_PUBLIC_MEDIA_CDN_ORIGIN)
+                .hostname,
+            },
+          ]
+        : []),
       // Shop saree model photography (shared public storage)
       {
         protocol: "https",

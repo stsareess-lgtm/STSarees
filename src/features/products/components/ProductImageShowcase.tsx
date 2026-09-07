@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { gql, DocumentType } from "@/gql";
 
-import Image from "next/image";
 import { Icons } from "../../../components/layouts/icons";
 import { keytoUrl } from "@/lib/utils";
+import { StorefrontImage } from "@/components/media/StorefrontImage";
 import {
   productPdpFrameClass,
   productThumbnailImageClass,
@@ -75,7 +75,7 @@ function ProductImageShowcase({
       <div className="w-full max-w-2xl order-1 md:order-3 grow">
         {allImages[activeImageIndex] && (
           <div className={`${productPdpFrameClass} mb-3 md:mb-5`}>
-            <Image
+            <StorefrontImage
               src={keytoUrl(allImages[activeImageIndex].key)}
               alt={allImages[activeImageIndex].alt || "Product image"}
               fill
@@ -83,6 +83,7 @@ function ProductImageShowcase({
               className={productThumbnailImageClass}
               style={viewTransitionStyle(transitionName)}
               priority
+              optimizeWidth={800}
             />
           </div>
         )}
@@ -92,7 +93,7 @@ function ProductImageShowcase({
       <div className="relative order-2 overflow-x-auto w-full md:w-[100px] h-full">
         <div className="flex overflow-x-auto gap-x-5 gapy-y-5 order-2 justify-center flex-row md:flex-col">
           {allImages.map((image, index) => (
-            <Image
+            <StorefrontImage
               key={image.id}
               src={keytoUrl(image.key)}
               alt={image.alt || "Product image thumbnail"}
@@ -100,6 +101,7 @@ function ProductImageShowcase({
               height={100}
               className={`aspect-[3/4] object-cover object-top cursor-pointer p-1 ${activeImageIndex === index ? "border-2 border-blue-500" : ""}`}
               onClick={() => setActiveImageIndex(index)}
+              optimizeWidth={112}
             />
           ))}
         </div>

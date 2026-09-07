@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StorefrontImage } from "@/components/media/StorefrontImage";
 import { viewTransitionStyle } from "@/lib/view-transitions";
 
 type CollectionCardSurfaceProps = {
@@ -32,7 +32,7 @@ export function CollectionCardSurface({
     <div
       className={cn("relative w-full overflow-hidden", aspectClass, className)}
     >
-      <Image
+      <StorefrontImage
         src={imageSrc}
         alt={imageAlt}
         fill
@@ -45,6 +45,7 @@ export function CollectionCardSurface({
             ? viewTransitionStyle(viewTransitionName)
             : undefined
         }
+        optimizeWidth={400}
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/45 to-transparent"

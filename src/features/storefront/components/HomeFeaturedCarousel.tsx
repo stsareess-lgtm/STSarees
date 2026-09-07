@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Suspense } from "react";
 import { DocumentType, gql } from "@/gql";
 import { ProductCardSkeleton } from "@/features/products";
@@ -13,6 +12,7 @@ import { AddToWishListButton } from "@/features/wishlists";
 import { ViewTransitionLink } from "@/components/ui/ViewTransitionLink";
 import { Badge } from "@/components/ui/badge";
 import { keytoUrl } from "@/lib/utils";
+import { StorefrontImage } from "@/components/media/StorefrontImage";
 import {
   productImageTransitionName,
   viewTransitionStyle,
@@ -59,7 +59,7 @@ function FeaturedSlide({ product }: { product: ProductNode }) {
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary/12 bg-card shadow-[0_14px_36px_-22px_rgba(17,17,17,0.22)]">
       <div className="relative w-full aspect-[3/4] max-h-[min(72vh,440px)] bg-muted">
         <ViewTransitionLink href={`/shop/${slug}`} className="absolute inset-0">
-          <Image
+          <StorefrontImage
             src={keytoUrl(featuredImage?.key)}
             alt={featuredImage?.alt || name}
             fill
@@ -67,6 +67,7 @@ function FeaturedSlide({ product }: { product: ProductNode }) {
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
             style={viewTransitionStyle(productImageTransitionName(id))}
             loading="lazy"
+            optimizeWidth={400}
           />
         </ViewTransitionLink>
         <ProductDiscountBadge

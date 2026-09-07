@@ -37,12 +37,14 @@ const DEFAULT_MEDIA_ORIGIN =
 const FALLBACK = "/images/sakthi-st-emblem.png";
 
 export function getImageDeliveryMode(): ImageDeliveryMode {
-  // Default legacy until /cdn + Images binding is deployed & validated.
-  // Set NEXT_PUBLIC_IMAGE_DELIVERY_MODE=cloudflare on Vercel after Worker deploy.
-  const raw = String(process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE ?? "legacy")
+  // Cloudflare /cdn is live on the media proxy (Images binding validated).
+  // Set NEXT_PUBLIC_IMAGE_DELIVERY_MODE=legacy to roll back to raw R2 URLs.
+  const raw = String(
+    process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE ?? "cloudflare",
+  )
     .trim()
     .toLowerCase();
-  return raw === "cloudflare" ? "cloudflare" : "legacy";
+  return raw === "legacy" ? "legacy" : "cloudflare";
 }
 
 function mediaOrigin(): string {
