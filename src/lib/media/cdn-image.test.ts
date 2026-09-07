@@ -10,7 +10,8 @@ describe("cdn-image", () => {
   const prevCdn = process.env.NEXT_PUBLIC_CDN_URL;
 
   afterEach(() => {
-    if (prevMode === undefined) delete process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE;
+    if (prevMode === undefined)
+      delete process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE;
     else process.env.NEXT_PUBLIC_IMAGE_DELIVERY_MODE = prevMode;
     if (prevCdn === undefined) delete process.env.NEXT_PUBLIC_CDN_URL;
     else process.env.NEXT_PUBLIC_CDN_URL = prevCdn;

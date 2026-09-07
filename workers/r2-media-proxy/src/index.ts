@@ -38,11 +38,7 @@ type R2BucketBinding = {
 /** Minimal Images binding surface (Cloudflare Images Free supports R2 transforms). */
 type ImagesBinding = {
   input: (stream: ReadableStream) => {
-    transform: (opts: {
-      width?: number;
-      height?: number;
-      fit?: string;
-    }) => {
+    transform: (opts: { width?: number; height?: number; fit?: string }) => {
       output: (opts: {
         format?: string;
         quality?: number;
@@ -319,9 +315,7 @@ async function handleCdnGet(
       "Cache-Control",
       "public, max-age=31536000, stale-while-revalidate=86400, immutable",
     );
-    Object.entries(corsHeaders(request)).forEach(([k, v]) =>
-      headers.set(k, v),
-    );
+    Object.entries(corsHeaders(request)).forEach(([k, v]) => headers.set(k, v));
 
     const response = new Response(imageResponse.body, {
       status: 200,
