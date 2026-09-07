@@ -34,7 +34,7 @@ describe("resolve-database-url", () => {
       password: "p@ss",
     });
     expect(url).toContain(`:${TRANSACTION_POOLER_PORT}/postgres`);
-    expect(url).toContain("aws-0-ap-south-1.pooler.supabase.com");
+    expect(url).toContain("aws-1-ap-south-1.pooler.supabase.com");
   });
 
   it("builds session pooler only when buildSupabasePoolerUrl port is set", () => {
@@ -70,12 +70,12 @@ describe("resolve-database-url", () => {
     expect(result.rewrites).toHaveLength(0);
   });
 
-  it("rewrites aws-1 pooler host to aws-0", () => {
+  it("keeps aws-1 pooler host (Sakthi tenant)", () => {
     const result = normalizePoolerDatabaseUrl(AWS1_URL, {
       forceTransactionPooler: false,
     });
-    expect(result.url).toContain("aws-0-ap-south-1.pooler.supabase.com");
-    expect(result.rewrites).toContain("aws-1 host → aws-0");
+    expect(result.url).toContain("aws-1-ap-south-1.pooler.supabase.com");
+    expect(result.rewrites).not.toContain("aws-1 host → aws-0");
   });
 
   it("resolveDatabaseUrl normalizes pooler DATABASE_URL on Vercel", () => {

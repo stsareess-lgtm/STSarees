@@ -13,7 +13,7 @@ export function HomeHeroBanner() {
         >
           <Image
             src="/images/hero-banner.png"
-            alt="SRI SAI RAGHAVENDRA TEX — premium silk saree collection"
+            alt="Sakthi Textile — premium silk saree collection"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 1200px"

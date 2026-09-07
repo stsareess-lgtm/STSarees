@@ -6,21 +6,20 @@ import { STOREFRONT_STATIC_REVALIDATE_SECONDS } from "@/lib/cache/constants";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "Our Story | SRI SAI RAGHAVENDRA TEX",
-  description:
-    "About SRI SAI RAGHAVENDRA TEX — authentic sarees from Salem, Tamil Nadu",
+  title: "Our Story",
+  description: "About Sakthi Textile — authentic sarees from Salem, Tamil Nadu",
 };
 
 export default function AboutPage() {
   return (
     <InfoPage
       heading="Our Story"
-      description="SRI SAI RAGHAVENDRA TEX — trusted sarees for every occasion, from our family to yours."
+      description="Sakthi Textile — trusted sarees for every occasion, from our family to yours."
     >
       <p>
-        SRI SAI RAGHAVENDRA TEX has been serving customers across Tamil Nadu
-        with authentic silk and cotton sarees for festivals, weddings, and
-        everyday elegance. From Kanjivaram and soft silk to cotton and wedding
+        Sakthi Textile has been serving customers across Tamil Nadu with
+        authentic silk and cotton sarees for festivals, weddings, and everyday
+        elegance. From Kanjivaram and soft silk to cotton and wedding
         collections, we curate quality pieces for retail and wholesale buyers.
       </p>
       <p>

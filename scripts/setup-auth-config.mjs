@@ -24,7 +24,7 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET?.trim();
 const siteUrl = (
   process.env.SUPABASE_SITE_URL?.trim() ||
   process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-  "https://sairaghavendratex.com"
+  "https://sakthitextile.com"
 ).replace(/\/$/, "");
 
 function authCallback(origin) {
@@ -34,7 +34,7 @@ function authCallback(origin) {
 const redirectOrigins = new Set([
   "http://localhost:3000",
   "http://127.0.0.1:3000",
-  "https://ssr-tex-shop.vercel.app",
+  "https://www.sakthitextile.com",
   siteUrl,
 ]);
 

@@ -7,6 +7,10 @@
  *
  * Industry path: client PUTs staging → server POST /promote copies inside R2
  * (no image bytes through Vercel).
+ *
+ * Public CDN (no auth):
+ * - GET /cdn/{options}/{key}  e.g. /cdn/w=400,q=75,f=webp/sakthi/foo.webp
+ *   Resizes via Cloudflare Images binding over R2 originals.
  */
 
 type R2ObjectBody = {
@@ -31,19 +35,38 @@ type R2BucketBinding = {
   delete: (keys: string | string[]) => Promise<void>;
 };
 
+/** Minimal Images binding surface (Cloudflare Images Free supports R2 transforms). */
+type ImagesBinding = {
+  input: (stream: ReadableStream) => {
+    transform: (opts: {
+      width?: number;
+      height?: number;
+      fit?: string;
+    }) => {
+      output: (opts: {
+        format?: string;
+        quality?: number;
+      }) => Promise<{ response: () => Response }>;
+    };
+  };
+};
+
 export interface Env {
   MEDIA_BUCKET: R2BucketBinding;
   MEDIA_PROXY_SECRET: string;
+  IMAGES?: ImagesBinding;
 }
 
 const MAX_BODY_BYTES = 8 * 1024 * 1024;
 const TOKEN_PREFIX = "uv1";
 const STAGING_PREFIX = "uploads/staging/";
+const MAX_CDN_WIDTH = 1600;
+const DEFAULT_CDN_WIDTH = 800;
+const DEFAULT_CDN_QUALITY = 75;
 
 const CORS_ORIGINS = new Set([
-  "https://www.sairaghavendratex.com",
-  "https://sairaghavendratex.com",
-  "https://ssr-tex-shop_onlin.vercel.app",
+  "https://www.sakthitextile.com",
+  "https://sakthitextile.com",
   "http://localhost:3000",
   "https://localhost",
   "http://localhost",
@@ -52,7 +75,7 @@ const CORS_ORIGINS = new Set([
 function isAllowedCorsOrigin(origin: string): boolean {
   if (!origin) return false;
   if (CORS_ORIGINS.has(origin)) return true;
-  return /^https:\/\/ssr-tex-shoponlin[\w-]*\.vercel\.app$/i.test(origin);
+  return /^https:\/\/[\w-]*sakthitextile[\w-]*\.vercel\.app$/i.test(origin);
 }
 
 function corsHeaders(request: Request): HeadersInit {
@@ -194,6 +217,125 @@ function isSafeFinalKey(key: string): boolean {
   return /^uploads\/[A-Za-z0-9/_-]+\.[a-z0-9]+$/i.test(key);
 }
 
+type CdnOptions = {
+  width: number;
+  quality: number;
+  format: "image/webp" | "image/avif" | "image/jpeg";
+};
+
+function parseCdnFormat(raw: string | undefined): CdnOptions["format"] | null {
+  const v = (raw || "webp").toLowerCase();
+  if (v === "webp") return "image/webp";
+  if (v === "avif") return "image/avif";
+  if (v === "jpeg" || v === "jpg") return "image/jpeg";
+  return null;
+}
+
+function parseCdnOptions(raw: string): CdnOptions | null {
+  const parts = raw
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean);
+  let width = DEFAULT_CDN_WIDTH;
+  let quality = DEFAULT_CDN_QUALITY;
+  let format: CdnOptions["format"] = "image/webp";
+
+  for (const part of parts) {
+    const eq = part.indexOf("=");
+    if (eq <= 0) return null;
+    const k = part.slice(0, eq).toLowerCase();
+    const v = part.slice(eq + 1);
+    if (k === "w" || k === "width") {
+      const n = Number(v);
+      if (!Number.isFinite(n) || n < 16 || n > MAX_CDN_WIDTH) return null;
+      width = Math.round(n);
+    } else if (k === "q" || k === "quality") {
+      const n = Number(v);
+      if (!Number.isFinite(n) || n < 20 || n > 100) return null;
+      quality = Math.round(n);
+    } else if (k === "f" || k === "format") {
+      const fmt = parseCdnFormat(v);
+      if (!fmt) return null;
+      format = fmt;
+    } else {
+      return null;
+    }
+  }
+
+  return { width, quality, format };
+}
+
+/** Public product media only — never expose arbitrary bucket paths. */
+function isPublicCdnKey(key: string): boolean {
+  if (key.includes("..") || key.includes("\\") || key.startsWith("/")) {
+    return false;
+  }
+  return (
+    key.startsWith("uploads/") ||
+    key.startsWith("sakthi/") ||
+    key.startsWith("product-draft")
+  );
+}
+
+async function handleCdnGet(
+  request: Request,
+  env: Env,
+  optionsRaw: string,
+  keyRaw: string,
+): Promise<Response> {
+  const opts = parseCdnOptions(optionsRaw);
+  if (!opts) return badRequest(request, "Invalid CDN options.");
+
+  const key = sanitizeKey(keyRaw);
+  if (!key || !isPublicCdnKey(key)) {
+    return badRequest(request, "Missing or invalid key.");
+  }
+
+  if (!env.IMAGES) {
+    return jsonResponse(
+      request,
+      { error: "Images binding is not configured." },
+      503,
+    );
+  }
+
+  const cache = caches.default;
+  const cacheHit = await cache.match(request);
+  if (cacheHit) return cacheHit;
+
+  const obj = await env.MEDIA_BUCKET.get(key);
+  if (!obj?.body) {
+    return jsonResponse(request, { error: "Not found" }, 404);
+  }
+
+  try {
+    const transformed = await env.IMAGES.input(obj.body)
+      .transform({ width: opts.width, fit: "scale-down" })
+      .output({ format: opts.format, quality: opts.quality });
+
+    const imageResponse = transformed.response();
+    const headers = new Headers(imageResponse.headers);
+    headers.set(
+      "Cache-Control",
+      "public, max-age=31536000, stale-while-revalidate=86400, immutable",
+    );
+    Object.entries(corsHeaders(request)).forEach(([k, v]) =>
+      headers.set(k, v),
+    );
+
+    const response = new Response(imageResponse.body, {
+      status: 200,
+      headers,
+    });
+    await cache.put(request, response.clone());
+    return response;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Transform failed";
+    console.error("[cdn] transform failed:", key, message);
+    return jsonResponse(request, { error: "Image transform failed." }, 502);
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -206,7 +348,23 @@ export default {
     }
 
     if (request.method === "GET" && url.pathname === "/health") {
-      return jsonResponse(request, { ok: true, promote: true });
+      return jsonResponse(request, {
+        ok: true,
+        promote: true,
+        images: Boolean(env.IMAGES),
+      });
+    }
+
+    // Public resize: /cdn/{options}/{key...}
+    if (request.method === "GET" && url.pathname.startsWith("/cdn/")) {
+      const rest = url.pathname.slice("/cdn/".length);
+      const slash = rest.indexOf("/");
+      if (slash <= 0) {
+        return badRequest(request, "Expected /cdn/{options}/{key}");
+      }
+      const optionsRaw = rest.slice(0, slash);
+      const keyRaw = rest.slice(slash + 1);
+      return handleCdnGet(request, env, optionsRaw, keyRaw);
     }
 
     if (request.method === "POST" && url.pathname === "/promote") {
@@ -234,7 +392,11 @@ export default {
 
       const src = await env.MEDIA_BUCKET.get(fromKey);
       if (!src) {
-        return jsonResponse(request, { error: "Staging object not found." }, 404);
+        return jsonResponse(
+          request,
+          { error: "Staging object not found." },
+          404,
+        );
       }
 
       const contentType =

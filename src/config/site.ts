@@ -2,68 +2,61 @@ import type { NavItemWithOptionalChildren } from "@/types";
 
 export type SiteConfig = typeof siteConfig;
 
-/** Business card — SRI SAI RAGHAVENDRA TEX (SSR Tex) */
+/** Business card — Sakthi Textile */
 const ADDRESS_LINES = [
-  "Chettiyar Street, Perumal Kovil Opp. Road",
-  "Elampillai – Kadayampatty",
-  "Elampillai, Salem – 637 502",
+  "337/55 Palakara Thottam Street",
+  "Mottur, Elampillai PO",
+  "Salem Dt, 637502",
 ] as const;
 
-/** Proprietors / contact persons from the business card */
+const PHONE = "+91 77080 69049";
+const PHONE_HREF = "tel:+917708069049";
+const EMAIL = "sakthitextilest@gmail.com";
+const GSTIN = "33CUTPS8607N1ZM";
+
 const CONTACTS = [
   {
-    name: "J. Moulee",
-    phone: "+91 80127 15132",
-    phoneHref: "tel:+918012715132",
-  },
-  {
-    name: "J. Vimal",
-    phone: "+91 95667 84543",
-    phoneHref: "tel:+919566784543",
+    name: "Sakthi Textile",
+    phone: PHONE,
+    phoneHref: PHONE_HREF,
   },
 ] as const;
 
-const PHONE = CONTACTS[0].phone;
-const PHONE_HREF = CONTACTS[0].phoneHref;
-const EMAIL = "";
-const GSTIN = "33BMCPV3652G1Z1";
-
 const SOCIAL = {
-  instagram: "",
-  youtube: "",
-  facebook: "",
-  whatsapp: "https://wa.me/918012715132",
+  instagram: "https://www.instagram.com/sakthitextiles",
+  youtube: "https://www.youtube.com/@sakthitextiles",
+  facebook: "https://www.facebook.com/sakthitextiles",
+  whatsapp: "https://wa.me/917708069049",
 } as const;
 
 export const siteConfig = {
   /** Title-case shop board line (navbar/footer wordmark) */
-  shopBoardName: "Sri Sai Raghavendra Tex",
-  name: "SRI SAI RAGHAVENDRA TEX®",
-  shortName: "SSR Tex",
-  tagline: "Sarees Wholesale & Retail Merchant",
+  shopBoardName: "Sakthi Textile",
+  name: "Sakthi Textile®",
+  shortName: "Sakthi Textile",
+  tagline: "THE QUALITY YOU CAN FEEL",
   /** Town shown on shop board / navbar */
   location: "ELAMPILLAI",
-  description: "Sarees wholesale & retail merchant — silk and cotton sarees",
+  description: "Authentic silk and cotton sarees — wholesale and retail",
   searchPlaceholder: "Search silk & cotton sarees, collections…",
-  url: "https://www.sairaghavendratex.com",
+  url: "https://www.sakthitextile.com",
   addressLines: ADDRESS_LINES,
   /** Single-line address for compact UI */
   address: ADDRESS_LINES.join(", "),
   phone: PHONE,
   /** `tel:` href (digits only, with country code) */
   phoneHref: PHONE_HREF,
-  /** All proprietors / contact numbers from the business card */
+  /** Contact persons used by shop-contact settings defaults */
   contacts: CONTACTS,
   email: EMAIL,
   gstin: GSTIN,
   currency: "INR",
   currencySymbol: "₹",
-  /** Update with your real profile URLs */
   social: SOCIAL,
   /** Top offer ribbon — rotates on the storefront */
   announcements: [
     {
-      text: "Premium silk & cotton sarees — wholesale & retail at SRI SAI RAGHAVENDRA TEX",
+      text: "Premium silk & cotton sarees — wholesale & retail at Sakthi Textile",
       href: "/shop",
       cta: "Shop now",
     },
@@ -146,20 +139,18 @@ export const siteConfig = {
       title: "Customer Service",
       items: [
         {
-          title: "Terms & Conditions",
-          href: "/terms-and-conditions",
+          title: "Shipping & Returns",
+          href: "/shipping-returns",
           items: [],
         },
-        { title: "Terms of Use", href: "/terms-of-use", items: [] },
-        { title: "Privacy Policy", href: "/privacy-policy", items: [] },
-        { title: "Shipping & Returns", href: "/shipping-returns", items: [] },
+        { title: "Store Policy", href: "/store-policy", items: [] },
         { title: "Payment Methods", href: "/payment-methods", items: [] },
         { title: "FAQ", href: "/faq", items: [] },
         { title: "My orders", href: "/orders", items: [] },
       ],
     },
     {
-      title: "About SRI SAI RAGHAVENDRA TEX",
+      title: "About Sakthi Textile",
       items: [
         { title: "Our Story", href: "/about", items: [] },
         { title: "Our Collections", href: "/collections", items: [] },

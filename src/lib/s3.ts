@@ -3,7 +3,7 @@ import { env } from "@/env.mjs";
 import { AwsClient } from "aws4fetch";
 
 /**
- * SSR Tex media storage on Cloudflare R2 (same pipeline as Hub of crafts).
+ * Sakthi Textile media storage on Cloudflare R2 (same pipeline as Hub of crafts).
  *
  * - Browser direct uploads: aws4fetch presigned PUT (S3 API)
  * - Worker put/get/delete: R2 binding (no S3 signature — avoids 401s from

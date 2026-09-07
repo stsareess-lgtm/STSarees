@@ -7,9 +7,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | SRI SAI RAGHAVENDRA TEX",
+  title: "Contact",
   description:
-    "Contact SRI SAI RAGHAVENDRA TEX — phone, email, WhatsApp, and store address",
+    "Contact Sakthi Textile — phone, email, WhatsApp, and store address",
 };
 
 export const revalidate = 60;
@@ -23,7 +23,7 @@ export default async function ContactPage() {
   return (
     <InfoPage
       heading="Contact Us"
-      description="Reach SRI SAI RAGHAVENDRA TEX by phone, WhatsApp, email, or visit our store in Salem."
+      description="Reach Sakthi Textile by phone, WhatsApp, email, or visit our store in Salem."
     >
       <section id="store" className="space-y-3">
         <h2 className="text-base font-semibold text-foreground">

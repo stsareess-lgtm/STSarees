@@ -25,7 +25,7 @@ function shallowResponse() {
       status: "ok",
       mode: "shallow",
       timestamp: new Date().toISOString(),
-      service: "ssr-tex-shop",
+      service: "sakthi-textile",
     },
     {
       status: 200,
@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
       status: healthy ? "ok" : "degraded",
       mode: "deep",
       timestamp: checkedAt,
-      service: "ssr-tex-shop",
+      service: "sakthi-textile",
       checks: { database, redis },
     },
     {

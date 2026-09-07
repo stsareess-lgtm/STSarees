@@ -11,7 +11,7 @@ export function AdminSidebarBrand({ className }: AdminSidebarBrandProps) {
   return (
     <Link href="/admin/dashboard" prefetch={false} className={className}>
       <Image
-        src="/images/ssr-tex-emblem.svg"
+        src="/images/sakthi-st-emblem.png"
         alt=""
         width={32}
         height={32}

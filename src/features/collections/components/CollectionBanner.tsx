@@ -41,7 +41,7 @@ function CollectionBanner({
         style={viewTransitionStyle(collectionImageTransitionName(id))}
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#4A1048]/90 via-[#4A1048]/40 to-black/20"
+        className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/40 to-black/20"
         aria-hidden
       />
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
@@ -50,7 +50,7 @@ function CollectionBanner({
             {label}
           </h1>
           <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#E8D5A3] sm:text-sm">
-            SRI SAI RAGHAVENDRA TEX collection
+            Sakthi Textile collection
           </p>
         </div>
       </div>

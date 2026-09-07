@@ -10,8 +10,8 @@ import { STOREFRONT_STATIC_REVALIDATE_SECONDS } from "@/lib/cache/constants";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "Shipping & Returns | SRI SAI RAGHAVENDRA TEX",
-  description: "Delivery and return policy for SRI SAI RAGHAVENDRA TEX sarees",
+  title: "Shipping & Returns",
+  description: "Delivery and return policy for Sakthi Textile sarees",
 };
 
 export default async function ShippingReturnsPage() {

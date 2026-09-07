@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "sakthi-shop-edge",
+  "account_id": "fb04e106c31247ba90f537dc0d5f9b62",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    {
+      "pattern": "www.sakthitextile.com/*",
+      "zone_name": "sakthitextile.com"
+    },
+    {
+      "pattern": "sakthitextile.com/*",
+      "zone_name": "sakthitextile.com"
+    }
+  ]
+}

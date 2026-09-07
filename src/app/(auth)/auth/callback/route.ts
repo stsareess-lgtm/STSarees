@@ -79,7 +79,7 @@ export async function GET(request: NextRequest) {
 
   if (
     process.env.NODE_ENV === "production" &&
-    requestHost === "ssr-tex-shop.vercel.app" &&
+    requestHost === "www.sakthitextile.com" &&
     canonicalHost !== requestHost
   ) {
     const canonicalCallback = new URL(

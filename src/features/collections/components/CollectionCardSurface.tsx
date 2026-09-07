@@ -47,7 +47,7 @@ export function CollectionCardSurface({
         }
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#4A1048]/95 via-[#4A1048]/45 to-transparent"
+        className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/45 to-transparent"
         aria-hidden
       />
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">

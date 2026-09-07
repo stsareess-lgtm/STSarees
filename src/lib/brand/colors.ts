@@ -1,18 +1,19 @@
-/** SSR Tex brand palette — matches shop-board sign (purple + gold) */
+/** Sakthi Textile palette — forest green storefront, gold accents */
 export const brandColors = {
-  purple: "#6B1858",
-  purpleDark: "#55104A",
-  purpleDeep: "#4A1048",
-  purpleDeepest: "#3A0838",
-  purpleHover: "#55104A",
-  purpleLight: "#8B3A72",
-  gold: "#E8C872",
+  forest: "#00542E",
+  forestDark: "#004225",
+  forestDeep: "#003d22",
+  forestMid: "#006b3a",
+  ink: "#262626",
+  inkDark: "#111111",
+  cream: "#F5EDE0",
+  gold: "#FFD700",
   goldDark: "#C9A227",
   goldBorder: "#C5A059",
-  cream: "#FFF6E8",
+  bronze: "#9A7209",
 } as const;
 
 /** RGB tuple for rgba() in shadows and glows */
 export const brandRgb = {
-  purple: "107, 24, 88",
+  ink: "38, 38, 38",
 } as const;

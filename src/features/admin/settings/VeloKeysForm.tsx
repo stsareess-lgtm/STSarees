@@ -52,7 +52,7 @@ export function VeloKeysForm() {
       "",
       "async function pollOrders() {",
       "  const res = await fetch(",
-      "    `https://ssr-tex-shoponlin-sairaghaverandratex.vercel.app/api/velo/orders?since=${encodeURIComponent(since)}&limit=50`,",
+      "    `https://sakthi-textileonlin-sairaghaverandratex.vercel.app/api/velo/orders?since=${encodeURIComponent(since)}&limit=50`,",
       "    { headers: { 'x-velo-key': apiKey } },",
       "  );",
       "  if (!res.ok) throw new Error('Failed to fetch orders');",
@@ -76,7 +76,7 @@ export function VeloKeysForm() {
     const key = latestApiKey || "YOUR_VELO_API_KEY";
     return [
       "const apiKey = '" + key + "';",
-      "const baseUrl = 'https://ssr-tex-shoponlin-sairaghaverandratex.vercel.app/api/velo/products';",
+      "const baseUrl = 'https://sakthi-textileonlin-sairaghaverandratex.vercel.app/api/velo/products';",
       "",
       "async function callProductsApi(action, requestId, data) {",
       "  const res = await fetch(baseUrl, {",
@@ -280,7 +280,7 @@ export function VeloKeysForm() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            When a website order is paid, SSR Tex POSTs to Velo&apos;s{" "}
+            When a website order is paid, Sakthi Textile POSTs to Velo&apos;s{" "}
             <code className="text-xs">notify-velo-order-push</code> edge
             function so the Velo app can alert immediately (not only poll every
             15s).

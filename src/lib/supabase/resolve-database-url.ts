@@ -1,9 +1,10 @@
 /**
  * Direct host db.<ref>.supabase.co is unreliable from Vercel.
- * SSR Tex shop uses aws-0-ap-south-1 transaction pooler (port 6543) for serverless.
+ * Sakthi Textile uses the aws-1-ap-south-1 transaction pooler (port 6543).
+ * Do not rewrite aws-1 → aws-0 — that host rejects this project tenant.
  */
 const DEFAULT_REGION = "ap-south-1";
-const DEFAULT_AWS_PREFIX = "aws-0";
+const DEFAULT_AWS_PREFIX = "aws-1";
 export const TRANSACTION_POOLER_PORT = 6543;
 export const SESSION_POOLER_PORT = 5432;
 
@@ -68,12 +69,12 @@ function parseLegacyDirectUrl(
 
 /**
  * Normalize Supabase pooler URLs for serverless:
- * - aws-1 → aws-0 (this shop only uses aws-0)
+ * - keep aws-0 / aws-1 hosts as given (Sakthi is aws-1)
  * - session :5432 → transaction :6543 (unless session explicitly requested)
  */
 export function normalizePoolerDatabaseUrl(
   url: string,
-  opts?: { forceTransactionPooler?: boolean },
+  _opts?: { forceTransactionPooler?: boolean },
 ): DatabaseUrlResolution {
   const rewrites: string[] = [];
 
@@ -81,11 +82,6 @@ export function normalizePoolerDatabaseUrl(
     const parsed = new URL(toHttpUrl(url));
     if (!/\.pooler\.supabase\.com$/i.test(parsed.hostname)) {
       return { url, rewrites };
-    }
-
-    if (/^aws-1-/i.test(parsed.hostname)) {
-      parsed.hostname = parsed.hostname.replace(/^aws-1-/i, "aws-0-");
-      rewrites.push("aws-1 host → aws-0");
     }
 
     const port = Number(parsed.port || SESSION_POOLER_PORT);

@@ -49,7 +49,7 @@ function MainFooter() {
   const contact = useStorefrontContact();
 
   return (
-    <footer className="mt-[80px] border-t border-primary/20 bg-muted/30 md:mt-[120px]">
+    <footer className="mt-[80px] border-t border-[#00542E]/20 bg-muted/30 md:mt-[120px]">
       <div className="container pb-8 pt-8 md:pb-10 md:pt-10">
         <div className="mb-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-4 md:gap-x-8 lg:max-w-5xl">
           {footerNav.map((column) => (
@@ -61,7 +61,7 @@ function MainFooter() {
           ))}
         </div>
 
-        <div className="border-t border-primary/15 pt-8 md:pt-10">
+        <div className="border-t border-[#00542E]/15 pt-8 md:pt-10">
           <div className="grid gap-8 md:grid-cols-[minmax(min-content,360px)_1fr_auto] md:items-start md:gap-10 lg:gap-14">
             <div className="flex min-w-0 items-center overflow-visible">
               <Branding size="footer" className="max-w-none" />
@@ -69,7 +69,7 @@ function MainFooter() {
 
             <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 md:max-w-xl">
               <div>
-                <h3 className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+                <h3 className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#00542E]">
                   Store address
                 </h3>
                 <address className="space-y-0.5 not-italic text-sm leading-relaxed text-muted-foreground">
@@ -98,7 +98,7 @@ function MainFooter() {
               </div>
 
               <div>
-                <h3 className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+                <h3 className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#00542E]">
                   Contact
                 </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
@@ -144,7 +144,7 @@ function MainFooter() {
             </div>
 
             <div className="flex flex-col items-start gap-3 md:items-end">
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#00542E]">
                 Follow us
               </h3>
               <SocialMedias containerClassName="md:justify-end" colored />

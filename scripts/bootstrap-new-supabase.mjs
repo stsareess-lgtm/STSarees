@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Bootstrap an empty Supabase project for SSR Tex.
+ * Bootstrap an empty Supabase project for Sakthi Textile.
  *
  * Usage (after filling .env.local with the NEW project):
  *   node --env-file=.env.local scripts/bootstrap-new-supabase.mjs
@@ -62,7 +62,7 @@ async function applyFile(fileName) {
 }
 
 async function main() {
-  console.log("Bootstrapping empty Supabase for SSR Tex…");
+  console.log("Bootstrapping empty Supabase for Sakthi Textile…");
   for (const file of ORDER) {
     // eslint-disable-next-line no-await-in-loop
     await applyFile(file);

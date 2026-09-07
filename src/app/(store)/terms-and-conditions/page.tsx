@@ -8,9 +8,9 @@ import { Metadata } from "next";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | SRI SAI RAGHAVENDRA TEX",
+  title: "Terms & Conditions",
   description:
-    "Terms and Conditions and Terms of Use for shopping at SRI SAI RAGHAVENDRA TEX (SSR Tex) online saree store.",
+    "Terms and Conditions and Terms of Use for shopping at Sakthi Textile online saree store.",
   alternates: {
     canonical: "/terms-and-conditions",
   },

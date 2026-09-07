@@ -1,0 +1,7 @@
+cypress
+coverage
+workers
+*.md
+scripts/_probe-gql.mjs
+scripts/_probe-gql-featured.mjs
+scripts/_probe-gql-landing.mjs

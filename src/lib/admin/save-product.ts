@@ -7,7 +7,11 @@ import {
 import db from "@/lib/supabase/db";
 import { mapProductSaveError } from "@/lib/supabase/pooler-errors";
 import { withRetry } from "@/lib/resilience";
-import { InsertProducts, products, type SelectProducts } from "@/lib/supabase/schema";
+import {
+  InsertProducts,
+  products,
+  type SelectProducts,
+} from "@/lib/supabase/schema";
 import { eq } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 
@@ -111,7 +115,9 @@ export async function createProductRecord(
       console.error("[products] gallery sync failed after create:", error);
     }
 
-    return serializeProductRow(created as unknown as Record<string, unknown>) as SelectProducts;
+    return serializeProductRow(
+      created as unknown as Record<string, unknown>,
+    ) as SelectProducts;
   } catch (error) {
     throw mapProductSaveError(error);
   }
@@ -180,7 +186,9 @@ export async function updateProductRecord(
       console.error("[products] gallery sync failed after update:", error);
     }
 
-    return serializeProductRow(updated as unknown as Record<string, unknown>) as SelectProducts;
+    return serializeProductRow(
+      updated as unknown as Record<string, unknown>,
+    ) as SelectProducts;
   } catch (error) {
     throw mapProductSaveError(error);
   }

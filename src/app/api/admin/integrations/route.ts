@@ -389,9 +389,9 @@ export async function POST(request: NextRequest) {
       tamilNaduBase: Number(incomingValue.tamilNaduBase ?? 40),
       southStatesBase: Number(incomingValue.southStatesBase ?? 60),
       restOfIndiaBase: Number(incomingValue.restOfIndiaBase ?? 75),
-      qty2To4AddOn: Number(incomingValue.qty2To4AddOn ?? 40),
+      qty2To4AddOn: Number(incomingValue.qty2To4AddOn ?? 100),
       qty5PlusFlat: Number(incomingValue.qty5PlusFlat ?? 200),
-      gstEnabled: Boolean(incomingValue.gstEnabled ?? true),
+      gstEnabled: Boolean(incomingValue.gstEnabled ?? false),
       gstPercentage: Number(incomingValue.gstPercentage ?? 5),
     });
     if (!courierChargesParsed.success) {

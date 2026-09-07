@@ -92,7 +92,7 @@ async function main() {
   for (let i = 0; i < collections.length; i++) {
     const col = collections[i];
     const url = collectionImageForLabel(col.label, i);
-    const alt = `${col.label} — Tamil Nadu saree model, SRI SAI RAGHAVENDRA TEX`;
+    const alt = `${col.label} — Tamil Nadu saree model, Sakthi Textile`;
 
     let mediaId = col.featured_image_id;
 
@@ -194,7 +194,7 @@ async function main() {
     }
   }
 
-  console.log("\nDone. Refresh https://ssr-tex-shop.vercel.app (Ctrl+Shift+R).");
+  console.log("\nDone. Refresh https://www.sakthitextile.com (Ctrl+Shift+R).");
 }
 
 main().catch((err) => {

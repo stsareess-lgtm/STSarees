@@ -7,9 +7,8 @@ import { STOREFRONT_STATIC_REVALIDATE_SECONDS } from "@/lib/cache/constants";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "FAQ | SRI SAI RAGHAVENDRA TEX",
-  description:
-    "Frequently asked questions about SRI SAI RAGHAVENDRA TEX sarees",
+  title: "FAQ",
+  description: "Frequently asked questions about Sakthi Textile sarees",
 };
 
 const faqs = [
@@ -41,7 +40,7 @@ export default async function FaqPage() {
   return (
     <InfoPage
       heading="FAQ"
-      description="Answers to common questions about shopping with SRI SAI RAGHAVENDRA TEX."
+      description="Answers to common questions about shopping with Sakthi Textile."
     >
       <ul className="space-y-6">
         {faqs.map(({ q, a }) => (

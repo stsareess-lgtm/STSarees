@@ -12,11 +12,11 @@ import {
 
 describe("cashfree-standards", () => {
   it("builds canonical Cashfree callback URLs", () => {
-    expect(buildCashfreeReturnUrl("https://www.sairaghavendratex.com/")).toBe(
-      "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
+    expect(buildCashfreeReturnUrl("https://www.sakthitextile.com/")).toBe(
+      "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
     );
-    expect(buildCashfreeNotifyUrl("https://www.sairaghavendratex.com")).toBe(
-      "https://www.sairaghavendratex.com/api/cashfree/webhook",
+    expect(buildCashfreeNotifyUrl("https://www.sakthitextile.com")).toBe(
+      "https://www.sakthitextile.com/api/cashfree/webhook",
     );
   });
 
@@ -79,8 +79,8 @@ describe("cashfree-standards", () => {
       paymentSessionId: "session_abc123",
       environment: "production",
       returnUrl:
-        "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
-      checkoutOrigin: "https://www.sairaghavendratex.com",
+        "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
+      checkoutOrigin: "https://www.sakthitextile.com",
     });
 
     expect(parsed.environment).toBe("production");
@@ -89,7 +89,7 @@ describe("cashfree-standards", () => {
   it("adds whitelisting guidance to domain errors", () => {
     const message = readCashfreeCheckoutError(
       { error: { message: "Domain is not whitelisted" } },
-      { whitelistOrigin: "https://www.sairaghavendratex.com" },
+      { whitelistOrigin: "https://www.sakthitextile.com" },
     );
 
     expect(message).toContain("Domain is not whitelisted");

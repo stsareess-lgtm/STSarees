@@ -259,7 +259,9 @@ export async function finalizeDirectUpload(params: {
     };
   } catch (promoteError) {
     const message =
-      promoteError instanceof Error ? promoteError.message : String(promoteError);
+      promoteError instanceof Error
+        ? promoteError.message
+        : String(promoteError);
     const hardFail =
       /empty file|too large|only image|not found|invalid staging/i.test(
         message,

@@ -27,7 +27,7 @@ function CollectionsCard({
   return (
     <Link
       href={`/collections/${slug}`}
-      className="group block overflow-hidden rounded-2xl border border-primary/15 bg-muted/30 shadow-sm transition-shadow hover:shadow-md active:scale-[0.99]"
+      className="group block overflow-hidden rounded-2xl border border-[#00542E]/15 bg-muted/30 shadow-sm transition-shadow hover:shadow-md active:scale-[0.99]"
     >
       <CollectionCardSurface
         label={label}

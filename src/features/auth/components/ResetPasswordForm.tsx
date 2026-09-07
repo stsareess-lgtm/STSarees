@@ -136,7 +136,7 @@ export function ResetPasswordForm() {
         />
         <Button
           disabled={isLoading}
-          className="w-full bg-primary hover:bg-[#55104A]"
+          className="w-full bg-primary hover:bg-[#111111]"
         >
           {isLoading && (
             <Icons.spinner

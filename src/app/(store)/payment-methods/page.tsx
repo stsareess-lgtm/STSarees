@@ -7,8 +7,8 @@ import { STOREFRONT_STATIC_REVALIDATE_SECONDS } from "@/lib/cache/constants";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "Payment Methods | SRI SAI RAGHAVENDRA TEX",
-  description: "How to pay for sarees at SRI SAI RAGHAVENDRA TEX",
+  title: "Payment Methods",
+  description: "How to pay for sarees at Sakthi Textile",
 };
 
 export default function PaymentMethodsPage() {

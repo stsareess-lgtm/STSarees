@@ -184,9 +184,9 @@ const DEFAULT_COURIER_CONFIG: Omit<CourierChargesConfig, "enabled"> = {
   tamilNaduBase: 40,
   southStatesBase: 60,
   restOfIndiaBase: 75,
-  qty2To4AddOn: 40,
+  qty2To4AddOn: 100,
   qty5PlusFlat: 200,
-  gstEnabled: true,
+  gstEnabled: false,
   gstPercentage: 5,
 };
 const DEFAULT_OFFER_CODES_CONFIG: OfferCodesConfig = {

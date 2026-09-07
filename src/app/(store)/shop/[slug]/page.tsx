@@ -32,6 +32,15 @@ import { keytoUrl } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const ProductMobileStickyBuyBar = dynamic(
+  () =>
+    import("@/features/products/components/ProductMobileStickyBuyBar").then(
+      (mod) => mod.ProductMobileStickyBuyBar,
+    ),
+  { ssr: false },
+);
 
 export const revalidate = STOREFRONT_REVALIDATE_SECONDS;
 
@@ -48,20 +57,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (productName) {
     return {
       title: productName,
-      description: `Buy ${productName} online from SRI SAI RAGHAVENDRA TEX. Premium silk and cotton sarees with secure checkout.`,
+      description: `Buy ${productName} online from Sakthi Textile. Premium silk and cotton sarees with secure checkout.`,
       alternates: {
         canonical: path,
       },
       openGraph: {
-        title: `${productName} | SRI SAI RAGHAVENDRA TEX`,
-        description: `Buy ${productName} online from SRI SAI RAGHAVENDRA TEX.`,
+        title: `${productName} | Sakthi Textile`,
+        description: `Buy ${productName} online from Sakthi Textile.`,
         url: path,
       },
     };
   }
 
   return {
-    title: "SRI SAI RAGHAVENDRA TEX | Silk & Cotton Sarees",
+    title: {
+      absolute: "Sakthi Textile | Silk & Cotton Sarees",
+    },
     description: "Authentic silk and cotton sarees — wholesale and retail",
   };
 }
@@ -124,9 +135,9 @@ async function ProductDetailPage({ params }: Props) {
           }),
         ]}
       />
-      <div className="grid grid-cols-12 gap-x-8">
-        <div className="space-y-8 relative col-span-12 md:col-span-7">
-          <div className="relative">
+      <div className="grid grid-cols-12 gap-x-8 gap-y-4 md:gap-y-8">
+        <div className="space-y-4 relative col-span-12 md:col-span-7 md:space-y-8 min-w-0 overflow-hidden">
+          <div className="relative min-w-0 w-full max-w-full">
             <ProductDiscountBadge
               product={pricingProduct}
               className="absolute top-3 left-3 z-10"
@@ -135,10 +146,10 @@ async function ProductDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="col-span-12 md:col-span-5">
+        <div className="col-span-12 md:col-span-5 min-w-0">
           <section className="flex justify-between items-start max-w-lg">
             <div>
-              <h1 className="text-4xl font-semibold tracking-wide mb-3">
+              <h1 className="mb-2 text-2xl font-semibold tracking-wide sm:mb-3 sm:text-3xl md:text-4xl">
                 {name}
               </h1>
               <ProductPriceDisplay
@@ -160,7 +171,10 @@ async function ProductDetailPage({ params }: Props) {
             <AddToWishListButton productId={id} />
           </section>
 
-          <section className="flex mb-8 items-end space-x-5">
+          <section
+            id="product-buy-box"
+            className="mb-8 flex scroll-mt-28 items-end space-x-5"
+          >
             <Suspense>
               <AddProductToCartForm
                 productId={id}
@@ -173,6 +187,14 @@ async function ProductDetailPage({ params }: Props) {
               <BuyNowButton productId={id} stock={stock} />
             ) : null}
           </section>
+
+          <ProductMobileStickyBuyBar
+            productId={id}
+            stock={stock}
+            sizeConfig={sizeConfig}
+            pricingProduct={pricingProduct}
+            hasConfiguredSizes={hasConfiguredSizes}
+          />
 
           <section>
             <p>{description}</p>

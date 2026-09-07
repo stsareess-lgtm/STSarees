@@ -267,7 +267,7 @@ export function ShopContactForm() {
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, gstin: e.target.value }))
                 }
-                placeholder="33BMCPV3652G1Z1"
+                placeholder="33CUTPS8607N1ZM"
               />
             </div>
             <div className="grid gap-2">

@@ -13,13 +13,12 @@ const siteUrl = getURL();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "SRI SAI RAGHAVENDRA TEX | Silk & Cotton Sarees",
-    template: "%s | SRI SAI RAGHAVENDRA TEX",
+    default: "Sakthi Textile | Silk & Cotton Sarees",
+    template: "%s | Sakthi Textile",
   },
   description: siteConfig.description,
   keywords: [
-    "SRI SAI RAGHAVENDRA TEX",
-    "SSR Tex",
+    "Sakthi Textile",
     "silk sarees",
     "cotton sarees",
     "Kanjivaram sarees",
@@ -42,12 +41,12 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: siteConfig.name,
-    title: "SRI SAI RAGHAVENDRA TEX | Silk & Cotton Sarees",
+    title: "Sakthi Textile | Silk & Cotton Sarees",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "SRI SAI RAGHAVENDRA TEX | Silk & Cotton Sarees",
+    title: "Sakthi Textile | Silk & Cotton Sarees",
     description: siteConfig.description,
   },
   robots: {
@@ -65,9 +64,9 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   icons: {
-    icon: [{ url: "/images/ssr-tex-emblem.svg", type: "image/svg+xml" }],
-    shortcut: ["/images/ssr-tex-emblem.svg"],
-    apple: [{ url: "/images/ssr-tex-emblem.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/images/sakthi-st-emblem.png", type: "image/png" }],
+    shortcut: ["/images/sakthi-st-emblem.png"],
+    apple: [{ url: "/images/sakthi-st-emblem.png", type: "image/png" }],
   },
 };
 

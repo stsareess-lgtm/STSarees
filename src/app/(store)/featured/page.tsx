@@ -14,14 +14,14 @@ export const revalidate = STOREFRONT_REVALIDATE_SECONDS;
 export const metadata: Metadata = {
   title: "Featured Sarees",
   description:
-    "Discover handpicked featured sarees at SRI SAI RAGHAVENDRA TEX — premium styles for weddings, festivals and special occasions.",
+    "Discover handpicked featured sarees at Sakthi Textile — premium styles for weddings, festivals and special occasions.",
   alternates: {
     canonical: "/featured",
   },
   openGraph: {
-    title: "Featured Sarees | SRI SAI RAGHAVENDRA TEX",
+    title: "Featured Sarees",
     description:
-      "Discover handpicked featured sarees at SRI SAI RAGHAVENDRA TEX for weddings and festivals.",
+      "Discover handpicked featured sarees at Sakthi Textile for weddings and festivals.",
     url: "/featured",
   },
 };

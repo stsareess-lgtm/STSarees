@@ -1,5 +1,5 @@
 /**
- * Seed homepage testimonials (text + video) for SRI SAI RAGHAVENDRA TEX.
+ * Seed homepage testimonials (text + video) for Sakthi Textile.
  * Tamil Nadu customer samples — safe to re-run.
  * Run: npm run db:seed-testimonials
  */
@@ -52,7 +52,7 @@ type TestimonialRow = {
 const mediaRows: MediaRow[] = TESTIMONIAL_IMAGES.map((imageUrl, index) => ({
   id: `ssrt-tmedia-${index + 1}`,
   key: imageUrl,
-  alt: `SRI SAI RAGHAVENDRA TEX customer — Tamil Nadu saree ${index + 1}`,
+  alt: `Sakthi Textile customer — Tamil Nadu saree ${index + 1}`,
 }));
 
 const testimonialRows: TestimonialRow[] = [
@@ -62,7 +62,7 @@ const testimonialRows: TestimonialRow[] = [
     customer_name: "Anitha R.",
     location: "Erode, Tamil Nadu",
     quote:
-      "In-store saree shopping at SRI SAI RAGHAVENDRA TEX — beautiful silks and friendly staff.",
+      "In-store saree shopping at Sakthi Textile — beautiful silks and friendly staff.",
     video_url: "https://www.youtube.com/watch?v=LXb3EKWsInQ",
     rating: 5,
     featured_image_id: "ssrt-tmedia-1",
@@ -146,7 +146,7 @@ const testimonialRows: TestimonialRow[] = [
     customer_name: "Kavitha P.",
     location: "Salem, Tamil Nadu",
     quote:
-      "Festival saree pick from SRI SAI RAGHAVENDRA TEX — loved the drape and border finish.",
+      "Festival saree pick from Sakthi Textile — loved the drape and border finish.",
     video_url: "https://www.youtube.com/watch?v=ScMzIvxBSi4",
     rating: 5,
     featured_image_id: "ssrt-tmedia-2",

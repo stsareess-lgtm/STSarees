@@ -1,38 +1,30 @@
 ---
-description: SSR Tex shop identity only — never Hub, Thryco, or old GitHub/Supabase
+description: Sakthi Textile shop identity only — never Hub, Thryco, or old shop accounts
 alwaysApply: true
 ---
 
-# SSR Tex shop identity (this workspace only)
+# Sakthi Textile shop identity (this workspace only)
 
-This repo is **SRI SAI RAGHAVENDRA TEX** (`ssr-tex-shop`). Use **only** these accounts. Do not use Hub of crafts, Thryco, Shaarun, or the old Sakthi GitHub/Vercel/Supabase.
+This repo is **Sakthi Textile**. Use **only** these identities. Do not use Hub of crafts, Thryco, Shaarun, SSR Tex, or other shop GitHub/Vercel/Supabase accounts.
 
-Load credentials from `.cursor/ssr-tex-secrets.local.md` and `.env.local`. Never commit those files. Never paste secrets into git.
+Load credentials from `.env.local`. Never commit that file. Never paste secrets into git.
 
 ## Canonical identity
 
 | What | Use this |
 |------|----------|
-| Live site | `https://www.sairaghavendratex.com` (apex 308 → www) |
-| GitHub | `sairaghavendratexonline-lang/ssr-tex-shop` |
-| Vercel team | Sairaghaverandratex `team_36dfNdSaDh1TmmDSqnAz5RzI` |
-| Vercel project | `ssr-tex-shop_onlin` `prj_zGAuPWJ8g0WjDnfSMhjZSKz17uVp` |
-| Vercel login | `sairaghavendratexonline@gmail.com` |
-| Supabase | `cpqcndouxlqutlmvowiy` — pooler **aws-0**-ap-south-1, transaction port **6543** (not aws-1 / not session :5432) |
-| Redis | this shop Upstash `funky-albacore-123688` — **not** Hub `huge-honeybee` |
-| R2 | account `a6b9847a4bbc0ac1cf3c406815175d58`, bucket `ssr-tex-media` |
-| CDN | `https://cdn.sairaghavendratex.com` |
-| Media Worker | `https://ssr-tex-media-proxy.ssr-tex-shop.workers.dev` |
-| Cloudflare zone | `sairaghavendratex.com` `a73453a9d453092b3cc1a7fbdbf86ab1` |
-| Edge | Apex + www **proxied** (orange cloud) → Vercel origin `76.76.21.21`; SSL **strict**; `cdn` stays R2 |
-
-## Cloudflare edge rollback
-
-If the shop breaks behind the proxy, set A records `@` and `www` back to **`proxied=false`** (grey cloud) in zone `a73453a9…`. Traffic returns to direct Vercel in minutes; no app/code rollback. Leave `cdn` proxied.
+| Legal / display name | Sakthi Textile® |
+| Short name | Sakthi Textile |
+| Live site | `https://www.sakthitextile.com` |
+| GitHub | `stsareess-lgtm/STSarees` |
+| Supabase project | `qhtwwyqlsnckorndmhmt` |
+| Supabase URL | `https://qhtwwyqlsnckorndmhmt.supabase.co` |
+| Phone | `+91 77080 69049` |
+| Email | `sakthitextilest@gmail.com` |
+| GSTIN | `33CUTPS8607N1ZM` |
 
 ## Do not
 
-- Point this shop at Hub Redis, Hub R2, or Hub Cloudflare MCP (`hubsofcraftss.com` / Shaarun).
-- Rewrite this project's pooler `aws-0` → `aws-1`.
-- Change Cashfree/checkout/stock-reservation without the payment-lock rule.
-- Use old Supabase `ulvvsqgufrwzczkenzjz` except as a read-only backup (`.env.old-supabase.local`).
+- Point this shop at another brand’s Redis, R2, or Supabase project.
+- Invent payment, R2, or Stripe secrets — copy them from the existing Sakthi `.env.local` / Vercel.
+- Leave leftover SSR Tex / Hiyori / Geetha storefront copy in customer-facing UI.

@@ -34,13 +34,13 @@ export function generateMetadata({ params }: CategoryPageProps) {
 
   return {
     title: `${collectionName} Sarees`,
-    description: `Shop ${collectionName} sarees at SRI SAI RAGHAVENDRA TEX. Premium silk and cotton sarees with secure online ordering.`,
+    description: `Shop ${collectionName} sarees at Sakthi Textile. Premium silk and cotton sarees with secure online ordering.`,
     alternates: {
       canonical: path,
     },
     openGraph: {
-      title: `${collectionName} Sarees | SRI SAI RAGHAVENDRA TEX`,
-      description: `Shop ${collectionName} sarees at SRI SAI RAGHAVENDRA TEX.`,
+      title: `${collectionName} Sarees | Sakthi Textile`,
+      description: `Shop ${collectionName} sarees at Sakthi Textile.`,
       url: path,
     },
   };

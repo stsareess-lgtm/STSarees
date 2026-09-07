@@ -20,7 +20,7 @@ export const heroSlides: HeroSlide[] = [
     href: "/collections/kanjivaram-wedding-sarees",
     cta: "Shop now",
     image: heroBannerImage("festiveSilk"),
-    imageAlt: "Model in Kanjivaram silk saree — SRI SAI RAGHAVENDRA TEX, Salem",
+    imageAlt: "Model in Kanjivaram silk saree — Sakthi Textile, Salem",
   },
   {
     id: "summer-weaves",
@@ -30,7 +30,7 @@ export const heroSlides: HeroSlide[] = [
     href: "/collections/cotton-sarees",
     cta: "Shop now",
     image: heroBannerImage("summerWeaves"),
-    imageAlt: "Model in cotton saree — SRI SAI RAGHAVENDRA TEX, Tamil Nadu",
+    imageAlt: "Model in cotton saree — Sakthi Textile, Tamil Nadu",
   },
   {
     id: "wedding-edit",
@@ -40,7 +40,7 @@ export const heroSlides: HeroSlide[] = [
     href: "/collections/wedding-collections",
     cta: "Shop now",
     image: heroBannerImage("weddingEdit"),
-    imageAlt: "Model in wedding silk saree — SRI SAI RAGHAVENDRA TEX, Salem",
+    imageAlt: "Model in wedding silk saree — Sakthi Textile, Salem",
   },
   {
     id: "daily-elegance",
@@ -49,6 +49,6 @@ export const heroSlides: HeroSlide[] = [
     href: "/shop",
     cta: "Shop now",
     image: heroBannerImage("dailyElegance"),
-    imageAlt: "Model in soft silk saree — SRI SAI RAGHAVENDRA TEX, Tamil Nadu",
+    imageAlt: "Model in soft silk saree — Sakthi Textile, Tamil Nadu",
   },
 ];

@@ -30,7 +30,7 @@ function PriceCircleCard({ bucket }: { bucket: ShopByPriceBucket }) {
       href={bucket.href}
       className="group flex w-full flex-col items-center gap-3 sm:gap-4"
     >
-      <div className="relative aspect-square w-full overflow-hidden rounded-full border-2 border-primary/20 bg-muted shadow-[0_14px_36px_-18px_rgba(107,24,88,0.55)] transition-[border-color,box-shadow,transform] duration-300 group-hover:border-primary/45 group-hover:shadow-[0_20px_44px_-16px_rgba(107,24,88,0.65)] group-active:scale-[0.98]">
+      <div className="relative aspect-square w-full overflow-hidden rounded-full border-2 border-primary/20 bg-muted shadow-[0_14px_36px_-18px_rgba(17,17,17,0.28)] transition-[border-color,box-shadow,transform] duration-300 group-hover:border-primary/45 group-hover:shadow-[0_20px_44px_-16px_rgba(17,17,17,0.36)] group-active:scale-[0.98]">
         {imageSrc ? (
           <Image
             src={imageSrc}

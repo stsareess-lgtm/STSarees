@@ -26,14 +26,14 @@ export const revalidate = STOREFRONT_REVALIDATE_SECONDS;
 export const metadata: Metadata = {
   title: "Shop All Sarees",
   description:
-    "Browse all silk, cotton, wedding and festive sarees at SRI SAI RAGHAVENDRA TEX. Shop online with secure checkout and delivery across India.",
+    "Browse all silk, cotton, wedding and festive sarees at Sakthi Textile. Shop online with secure checkout and delivery across India.",
   alternates: {
     canonical: "/shop",
   },
   openGraph: {
-    title: "Shop All Sarees | SRI SAI RAGHAVENDRA TEX",
+    title: "Shop All Sarees",
     description:
-      "Browse all silk, cotton, wedding and festive sarees at SRI SAI RAGHAVENDRA TEX.",
+      "Browse all silk, cotton, wedding and festive sarees at Sakthi Textile.",
     url: "/shop",
   },
 };

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Icons } from "../../../components/layouts/icons";
 import { keytoUrl } from "@/lib/utils";
 import {
-  productThumbnailFrameClass,
+  productPdpFrameClass,
   productThumbnailImageClass,
 } from "@/features/products/productThumbnail";
 import {
@@ -74,7 +74,7 @@ function ProductImageShowcase({
       {/* Active Image Display */}
       <div className="w-full max-w-2xl order-1 md:order-3 grow">
         {allImages[activeImageIndex] && (
-          <div className={`${productThumbnailFrameClass} mb-5`}>
+          <div className={`${productPdpFrameClass} mb-3 md:mb-5`}>
             <Image
               src={keytoUrl(allImages[activeImageIndex].key)}
               alt={allImages[activeImageIndex].alt || "Product image"}

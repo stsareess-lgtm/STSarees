@@ -16,26 +16,29 @@ import { getLandingPageDataCached } from "@/lib/storefront/landing-data";
 import { getShopByPriceBucketsCached } from "@/lib/storefront/shop-by-price";
 import { resolveStorefrontContact } from "@/lib/integrations/settings";
 import { STOREFRONT_REVALIDATE_SECONDS } from "@/lib/cache/constants";
+import { CDN_PRESETS, cdnImageUrl } from "@/lib/media/cdn-image";
 import type { Metadata } from "next";
 
 export const revalidate = STOREFRONT_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "SRI SAI RAGHAVENDRA TEX | Premium Silk & Cotton Sarees Online",
+  title: {
+    absolute: "Sakthi Textile | Silk & Cotton Sarees",
+  },
   description:
-    "Shop authentic silk and cotton sarees at SRI SAI RAGHAVENDRA TEX. Explore featured sarees, wedding collections, Kanjivaram styles, and wholesale sarees from Salem.",
+    "Shop authentic silk and cotton sarees at Sakthi Textile. Explore featured sarees, wedding collections, Kanjivaram styles, and wholesale sarees from Salem.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SRI SAI RAGHAVENDRA TEX | Premium Silk & Cotton Sarees Online",
+    title: "Sakthi Textile | Silk & Cotton Sarees",
     description:
-      "Shop authentic silk and cotton sarees at SRI SAI RAGHAVENDRA TEX. Explore featured sarees, wedding collections, and wholesale sarees from Salem.",
+      "Shop authentic silk and cotton sarees at Sakthi Textile. Explore featured sarees, wedding collections, and wholesale sarees from Salem.",
     url: "/",
   },
 };
 
-const SECTION_TIMEOUT_MS = 5000;
+const SECTION_TIMEOUT_MS = 12000;
 
 export default async function Home() {
   const [homeBannerSlides, data, draftProductIds, contact, priceBuckets] =
@@ -74,9 +77,21 @@ export default async function Home() {
   const collectionScrollCards = data?.collectionScrollCards;
   const homeTestimonials = data?.homeTestimonials;
   const slides = homeBannerSlides?.length ? homeBannerSlides : heroSlides;
+  const firstHeroImage = slides[0]?.image?.trim() || null;
+  const firstHeroImageSrc = firstHeroImage
+    ? cdnImageUrl(firstHeroImage, CDN_PRESETS.hero)
+    : null;
 
   return (
     <main className="min-h-screen w-full min-w-0 overflow-x-hidden">
+      {firstHeroImageSrc ? (
+        <link
+          rel="preload"
+          as="image"
+          href={firstHeroImageSrc}
+          fetchPriority="high"
+        />
+      ) : null}
       <HomeHeroCarousel slides={slides} />
 
       <Shell>

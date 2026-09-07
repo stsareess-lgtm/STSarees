@@ -32,7 +32,7 @@ function ReelProductCard({ product }: { product: ProductNode }) {
 
   return (
     <ViewTransitionLink href={`/shop/${slug}`} className="group block w-full">
-      <article className="relative aspect-[9/16] w-full min-h-[220px] overflow-hidden rounded-2xl border border-primary/20 bg-muted shadow-[0_16px_40px_-20px_rgba(107,24,88,0.55)]">
+      <article className="relative aspect-[9/16] w-full min-h-[220px] overflow-hidden rounded-2xl border border-primary/20 bg-muted shadow-[0_16px_40px_-20px_rgba(17,17,17,0.28)]">
         <Image
           src={keytoUrl(featuredImage.key)}
           alt={featuredImage.alt || name}

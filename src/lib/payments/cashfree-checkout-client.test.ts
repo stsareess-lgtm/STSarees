@@ -13,10 +13,8 @@ describe("cashfree-checkout-client", () => {
   });
 
   it("builds client return URLs from the current origin", () => {
-    expect(
-      buildClientCashfreeReturnUrl("https://www.sairaghavendratex.com"),
-    ).toBe(
-      "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
+    expect(buildClientCashfreeReturnUrl("https://www.sakthitextile.com")).toBe(
+      "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
     );
   });
 
@@ -27,8 +25,8 @@ describe("cashfree-checkout-client", () => {
       paymentSessionId: "session_abc123",
       environment: "production",
       returnUrl:
-        "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
-      checkoutOrigin: "https://www.sairaghavendratex.com",
+        "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
+      checkoutOrigin: "https://www.sakthitextile.com",
     });
 
     expect(parsed.paymentSessionId).toBe("session_abc123");
@@ -42,8 +40,8 @@ describe("cashfree-checkout-client", () => {
         paymentSessionId: "bad",
         environment: "production",
         returnUrl:
-          "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
-        checkoutOrigin: "https://www.sairaghavendratex.com",
+          "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
+        checkoutOrigin: "https://www.sakthitextile.com",
       }),
     ).toThrow("Invalid Cashfree checkout response");
   });
@@ -71,8 +69,8 @@ describe("cashfree-checkout-client", () => {
       paymentSessionId: "session_abc123",
       environment: "production" as const,
       returnUrl:
-        "https://www.sairaghavendratex.com/api/cashfree/redirect?order_id={order_id}",
-      checkoutOrigin: "https://www.sairaghavendratex.com",
+        "https://www.sakthitextile.com/api/cashfree/redirect?order_id={order_id}",
+      checkoutOrigin: "https://www.sakthitextile.com",
     };
 
     openCashfreeCheckout({ payload });

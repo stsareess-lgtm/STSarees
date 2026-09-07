@@ -8,9 +8,9 @@ import { Metadata } from "next";
 export const revalidate = STOREFRONT_STATIC_REVALIDATE_SECONDS;
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SRI SAI RAGHAVENDRA TEX",
+  title: "Privacy Policy",
   description:
-    "Privacy Policy explaining how SRI SAI RAGHAVENDRA TEX collects and uses customer information.",
+    "Privacy Policy explaining how Sakthi Textile collects and uses customer information.",
   alternates: {
     canonical: "/privacy-policy",
   },

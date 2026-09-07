@@ -84,9 +84,9 @@ export function AnnouncementBar() {
   if (items.length === 1) {
     const item = items[0];
     return (
-      <div className="relative overflow-hidden border-b border-[#C5A059]/25 bg-[#55104A]">
+      <div className="relative overflow-hidden border-b border-[#C5A059]/25 bg-[#00542E]">
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#3A0838] via-[#55104A] to-[#3A0838]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#004225] via-[#00542E] to-[#004225]"
           aria-hidden
         />
         <div className="relative z-10 flex h-[var(--announcement-bar-height)] items-center justify-center gap-2 px-3 sm:px-4">
@@ -102,16 +102,16 @@ export function AnnouncementBar() {
 
   return (
     <div
-      className="group/announcement relative overflow-hidden border-b border-[#C5A059]/25 bg-[#55104A]"
+      className="group/announcement relative overflow-hidden border-b border-[#C5A059]/25 bg-[#00542E]"
       aria-label="Store announcements"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#3A0838] via-[#55104A] to-[#3A0838]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#004225] via-[#00542E] to-[#004225]"
         aria-hidden
       />
 
       <div className="relative z-10 flex h-[var(--announcement-bar-height)] items-center">
-        <div className="relative z-20 flex shrink-0 items-center bg-[#55104A] pl-2 pr-1 sm:pl-3 sm:pr-2">
+        <div className="relative z-20 flex shrink-0 items-center bg-[#00542E] pl-2 pr-1 sm:pl-3 sm:pr-2">
           <Sparkles className="h-3.5 w-3.5 text-[#E8D5A3]" aria-hidden />
         </div>
 

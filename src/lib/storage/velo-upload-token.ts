@@ -31,7 +31,7 @@ function safeEqual(a: string, b: string): boolean {
 }
 
 /**
- * Short-lived client upload token for the SSR Tex R2 media proxy.
+ * Short-lived client upload token for the Sakthi Textile R2 media proxy.
  * Client PUTs bytes to the Worker; Vercel never sees the image body.
  */
 export function createMediaProxyUploadToken(

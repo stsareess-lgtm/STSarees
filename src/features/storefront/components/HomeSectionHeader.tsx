@@ -22,7 +22,7 @@ export function HomeSectionHeader({
       <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
         <span
           aria-hidden
-          className="h-6 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-primary to-[#55104A] sm:h-7"
+          className="h-6 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-primary to-[#111111] sm:h-7"
         />
         <h2 className="min-w-0 text-lg font-bold leading-tight tracking-tight sm:text-xl md:text-2xl">
           {title}

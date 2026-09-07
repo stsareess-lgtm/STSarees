@@ -56,14 +56,14 @@ export function StoreFloatingActions() {
           mode="call"
           isOpen={openPicker === "call"}
           onOpenChange={(open) => handlePickerChange("call", open)}
-          triggerLabel="Call SRI SAI RAGHAVENDRA TEX — choose a number"
-          triggerClassName={`animate-phone-glow ${floatingActionButtonClass} bg-primary text-white ring-2 ring-primary/40`}
+          triggerLabel="Call Sakthi Textile — choose a number"
+          triggerClassName={`animate-phone-glow ${floatingActionButtonClass} bg-[#0EA5E9] text-white ring-2 ring-[#0EA5E9]/40`}
           triggerIcon={<PhoneCall className="h-5 w-5" strokeWidth={2} />}
         />
 
         <Link
           href="/cart"
-          className={`relative ${floatingActionButtonClass} border border-border bg-white text-foreground shadow-[0_4px_16px_rgba(0,0,0,0.12)]`}
+          className={`relative ${floatingActionButtonClass} bg-[#0EA5E9] text-white ring-2 ring-[#0EA5E9]/40 shadow-[0_4px_16px_rgba(14,165,233,0.28)]`}
           aria-label={`Cart${cartCount > 0 ? `, ${cartCount} items` : ""}`}
         >
           <ShoppingBag className="h-5 w-5" strokeWidth={1.75} />

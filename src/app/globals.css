@@ -4,34 +4,34 @@
 
 @layer base {
   :root {
-    /* SSR Tex — regal plum purple primary with champagne gold accents */
-    --background: 320 28% 98%;
-    --foreground: 318 35% 14%;
+    /* Sakthi Textile — clean light storefront, near-black primary, cream secondary */
+    --background: 0 0% 98%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 320 28% 99%;
-    --card-foreground: 318 35% 14%;
+    --card: 0 0% 98%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 318 35% 14%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 318 42% 35%;
-    --primary-foreground: 42 55% 96%;
+    --primary: 0 0% 15%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 42 48% 93%;
-    --secondary-foreground: 318 35% 20%;
+    --secondary: 40 44% 94%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 320 22% 95%;
-    --muted-foreground: 318 12% 42%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 42 58% 90%;
-    --accent-foreground: 318 35% 18%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 75% 47%;
-    --destructive-foreground: 42 55% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 318 18% 88%;
-    --input: 318 18% 88%;
-    --ring: 318 42% 35%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
     --radius: 0.1rem;
     --mobile-nav-height: calc(
@@ -58,34 +58,34 @@
   }
 
   .dark {
-    /* Deep plum night palette with gold accents */
-    --background: 318 32% 8%;
-    --foreground: 42 38% 92%;
+    /* Near-black / cream night palette */
+    --background: 0 0% 8%;
+    --foreground: 40 20% 94%;
 
-    --card: 318 30% 11%;
-    --card-foreground: 42 38% 92%;
+    --card: 0 0% 11%;
+    --card-foreground: 40 20% 94%;
 
-    --popover: 318 30% 11%;
-    --popover-foreground: 42 38% 92%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 40 20% 94%;
 
-    --primary: 318 38% 52%;
-    --primary-foreground: 318 35% 10%;
+    --primary: 40 30% 90%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 318 26% 18%;
-    --secondary-foreground: 42 38% 92%;
+    --secondary: 40 16% 16%;
+    --secondary-foreground: 40 20% 94%;
 
-    --muted: 318 22% 18%;
-    --muted-foreground: 318 14% 66%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 66%;
 
-    --accent: 42 35% 22%;
-    --accent-foreground: 42 65% 80%;
+    --accent: 40 16% 18%;
+    --accent-foreground: 40 40% 86%;
 
     --destructive: 0 62% 42%;
-    --destructive-foreground: 42 38% 92%;
+    --destructive-foreground: 40 20% 94%;
 
-    --border: 318 22% 20%;
-    --input: 318 22% 20%;
-    --ring: 318 38% 52%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 40 30% 90%;
   }
 }
 
@@ -203,13 +203,13 @@ html {
   0%,
   100% {
     box-shadow:
-      0 4px 16px rgba(107, 24, 88, 0.35),
-      0 0 0 0 rgba(107, 24, 88, 0.45);
+      0 4px 16px rgba(14, 165, 233, 0.35),
+      0 0 0 0 rgba(14, 165, 233, 0.45);
   }
   50% {
     box-shadow:
-      0 4px 20px rgba(107, 24, 88, 0.5),
-      0 0 0 10px rgba(107, 24, 88, 0);
+      0 4px 20px rgba(14, 165, 233, 0.5),
+      0 0 0 10px rgba(14, 165, 233, 0);
   }
 }
 
@@ -217,7 +217,7 @@ html {
   animation: phone-glow 2.2s ease-in-out infinite;
 }
 
-/* SSR Tex shop-board — gold on purple; solid text (no background-clip) for mobile/dark reliability */
+/* Shop-board lockup — gold on near-black; solid text for mobile/dark reliability */
 .brand-board-lockup {
   isolation: isolate;
   color-scheme: light;

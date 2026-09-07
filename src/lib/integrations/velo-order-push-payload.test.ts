@@ -13,14 +13,14 @@ describe("velo order push payload", () => {
   it("builds payload with summed quantity, IST time, and trimmed shop URL", () => {
     expect(
       buildVeloOrderPushPayload({
-        shopBaseUrl: "https://www.sairaghavendratex.com/",
+        shopBaseUrl: "https://www.sakthitextile.com/",
         orderId: "ord_123",
         customerName: " Priya ",
         lineQuantities: [1, 2],
         createdAt: "2026-07-11T10:52:00.000Z",
       }),
     ).toEqual({
-      shopBaseUrl: "https://www.sairaghavendratex.com",
+      shopBaseUrl: "https://www.sakthitextile.com",
       orderId: "ord_123",
       customerName: "Priya",
       quantity: 3,
@@ -33,13 +33,13 @@ describe("velo order push payload", () => {
   it("defaults customer name and minimum quantity", () => {
     expect(
       buildVeloOrderPushPayload({
-        shopBaseUrl: "https://www.sairaghavendratex.com",
+        shopBaseUrl: "https://www.sakthitextile.com",
         orderId: "ord_456",
         customerName: "",
         lineQuantities: [],
       }),
     ).toEqual({
-      shopBaseUrl: "https://www.sairaghavendratex.com",
+      shopBaseUrl: "https://www.sakthitextile.com",
       orderId: "ord_456",
       customerName: "Guest",
       quantity: 1,

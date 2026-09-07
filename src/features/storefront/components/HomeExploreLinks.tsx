@@ -11,7 +11,7 @@ export function HomeExploreLinks() {
         id="explore-sakthi-heading"
         className="font-[family-name:var(--font-hero-serif)] text-xl font-semibold text-foreground md:text-2xl"
       >
-        Explore SRI SAI RAGHAVENDRA TEX
+        Explore Sakthi Textile
       </h2>
       <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:text-base">
         Shop premium silk and cotton sarees online, browse collections, and
@@ -25,9 +25,9 @@ export function HomeExploreLinks() {
           <Link
             key={item.href}
             href={item.href}
-            className="rounded-lg border bg-card p-4 transition hover:border-primary/40 hover:bg-primary/5"
+            className="rounded-lg border bg-card p-4 transition hover:border-[#00542E]/40 hover:bg-[#00542E]/5"
           >
-            <h3 className="text-sm font-semibold text-primary md:text-base">
+            <h3 className="text-sm font-semibold text-[#00542E] md:text-base">
               {item.name}
             </h3>
             <p className="mt-1 text-xs text-muted-foreground md:text-sm">

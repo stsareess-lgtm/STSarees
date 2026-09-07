@@ -177,7 +177,7 @@ if (!googleReady) {
   console.log(`  ${supabaseUrl.replace(/\/$/, "")}/auth/v1/callback`);
   console.log("\nApp callback URLs for Supabase → Authentication → URL Configuration:");
   console.log("  http://localhost:3000/auth/callback");
-  console.log("  https://ssr-tex-shop.vercel.app/auth/callback");
+  console.log("  https://www.sakthitextile.com/auth/callback");
 }
 
 process.exit(signup.ok && db.ok ? 0 : 1);

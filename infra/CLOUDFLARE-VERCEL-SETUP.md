@@ -1,4 +1,4 @@
-# SSR Tex hosting architecture (industry standard)
+# Sakthi Textile hosting architecture (industry standard)
 
 ## Target stack (recommended — do not full-migrate to Cloudflare Workers yet)
 
@@ -7,19 +7,19 @@
 | **DNS + edge CDN + WAF** | Cloudflare (Free or Pro) | Proxy `www`, cache static assets, block bots |
 | **App (Next.js SSR/ISR)** | Vercel Pro (~$20/mo) | Serverless functions, admin, checkout |
 | **Database** | Supabase `cpqcndouxlqutlmvowiy` | Postgres via **transaction pooler :6543** |
-| **Product media CDN** | Cloudflare R2 + `cdn.sairaghavendratex.com` | Already in place |
+| **Product media CDN** | Cloudflare R2 + `cdn.sakthitextile.com` | Already in place |
 | **Cross-instance cache** | Upstash Redis | Storefront data cache |
 
 This matches how most small/mid e-commerce shops run: **Cloudflare in front, Vercel as origin, Supabase as DB**.
 
 ## Cloudflare DNS setup (orange cloud)
 
-1. In **Cloudflare DNS** for `sairaghavendratex.com`:
+1. In **Cloudflare DNS** for `sakthitextile.com`:
    - `www` → CNAME → `cname.vercel-dns.com` — **Proxied (orange cloud)**
-   - `@` apex → redirect to `https://www.sairaghavendratex.com` (Cloudflare Redirect Rule or CNAME flattening to www)
-2. In **Vercel** → Project → Domains: add `www.sairaghavendratex.com` (already should be there).
+   - `@` apex → redirect to `https://www.sakthitextile.com` (Cloudflare Redirect Rule or CNAME flattening to www)
+2. In **Vercel** → Project → Domains: add `www.sakthitextile.com` (already should be there).
 3. SSL/TLS mode: **Full (strict)**.
-4. Do **not** point `cdn.sairaghavendratex.com` at Vercel — it stays on R2.
+4. Do **not** point `cdn.sakthitextile.com` at Vercel — it stays on R2.
 
 ### Cloudflare cache rules (dashboard → Rules → Cache Rules)
 

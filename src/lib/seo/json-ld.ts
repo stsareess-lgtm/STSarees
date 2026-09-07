@@ -19,7 +19,7 @@ export function buildOrganizationJsonLd() {
     "@type": "Organization",
     name: siteConfig.name.replace("®", "").trim(),
     url: absoluteUrl(),
-    logo: absoluteUrl("/images/ssr-tex-emblem.svg"),
+    logo: absoluteUrl("/images/sakthi-st-emblem.png"),
     email: siteConfig.email,
     telephone: siteConfig.phone,
     address: {
@@ -59,7 +59,7 @@ export function buildStoreJsonLd() {
     "@type": "Store",
     name: siteConfig.name.replace("®", "").trim(),
     url: absoluteUrl(),
-    image: absoluteUrl("/images/ssr-tex-emblem.svg"),
+    image: absoluteUrl("/images/sakthi-st-emblem.png"),
     telephone: siteConfig.phone,
     email: siteConfig.email,
     address: {
@@ -78,7 +78,7 @@ export function buildSiteNavigationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "SRI SAI RAGHAVENDRA TEX primary navigation",
+    name: "Sakthi Textile primary navigation",
     itemListElement: SEO_PRIMARY_NAV.map((item, index) => ({
       "@type": "SiteNavigationElement",
       position: index + 1,
@@ -116,8 +116,7 @@ export function buildProductJsonLd(input: {
     "@context": "https://schema.org",
     "@type": "Product",
     name: input.name,
-    description:
-      input.description ?? `Buy ${input.name} from SRI SAI RAGHAVENDRA TEX.`,
+    description: input.description ?? `Buy ${input.name} from Sakthi Textile.`,
     image: input.imageUrl ? [input.imageUrl] : undefined,
     sku: input.slug,
     brand: {

@@ -95,7 +95,8 @@ export async function savePdfBlob(
 const DEFAULT_LOGO_PATHS = [
   "/logo.png",
   "/logo2.png",
-  "/images/ssr-tex-emblem.png",
+  "/images/sakthi-st-emblem.png",
+  "/images/sakthi-logo.png",
 ];
 let defaultLogoCache: string | null | undefined;
 

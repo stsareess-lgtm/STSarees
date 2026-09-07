@@ -79,7 +79,7 @@ function CustomerAvatar({
   }
 
   return (
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-[#55104A] text-sm font-bold text-white ring-2 ring-primary/15 ring-offset-2 ring-offset-background">
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-[#111111] text-sm font-bold text-white ring-2 ring-primary/15 ring-offset-2 ring-offset-background">
       {initials || "ST"}
     </div>
   );
@@ -89,7 +89,7 @@ function ModernTextTestimonialCard({ node }: { node: TestimonialNode }) {
   const imageKey = node.featuredImage?.key;
 
   return (
-    <article className="flex w-full flex-col rounded-2xl border border-primary/12 bg-card p-4 shadow-[0_16px_40px_-28px_rgba(107,24,88,0.45)] sm:min-h-[280px] sm:p-6">
+    <article className="flex w-full flex-col rounded-2xl border border-primary/12 bg-card p-4 shadow-[0_16px_40px_-28px_rgba(17,17,17,0.18)] sm:min-h-[280px] sm:p-6">
       <div className="mb-3 flex items-start justify-between gap-2 sm:mb-4 sm:gap-3">
         <StarRating rating={node.rating ?? 5} />
         <Quote
@@ -104,7 +104,7 @@ function ModernTextTestimonialCard({ node }: { node: TestimonialNode }) {
         </blockquote>
       ) : (
         <p className="flex-1 text-sm text-muted-foreground">
-          Thank you for shopping with SRI SAI RAGHAVENDRA TEX.
+          Thank you for shopping with Sakthi Textile.
         </p>
       )}
 
@@ -137,7 +137,7 @@ function ModernVideoTestimonialCard({ node }: { node: TestimonialNode }) {
   const posterUrl = imageKey ? keytoUrl(imageKey) : null;
 
   return (
-    <article className="group flex w-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-[#4A1048]/5 shadow-[0_16px_40px_-24px_rgba(107,24,88,0.5)]">
+    <article className="group flex w-full flex-col overflow-hidden rounded-2xl border border-primary/15 bg-secondary/60 shadow-[0_16px_40px_-24px_rgba(17,17,17,0.2)]">
       <div className="relative aspect-[9/13] w-full max-h-[min(62vh,360px)] bg-muted sm:aspect-[3/4] sm:max-h-none">
         <TestimonialVideoPlayer
           fill
@@ -146,7 +146,7 @@ function ModernVideoTestimonialCard({ node }: { node: TestimonialNode }) {
           posterUrl={posterUrl}
           customerName={node.customer_name}
         />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#4A1048]/95 via-[#4A1048]/50 to-transparent p-3 pt-12 sm:p-4 sm:pt-16">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/50 to-transparent p-3 pt-12 sm:p-4 sm:pt-16">
           <StarRating rating={node.rating ?? 5} />
           {node.quote ? (
             <p className="mt-1.5 line-clamp-2 text-xs font-medium leading-snug text-white sm:mt-2 sm:text-sm">

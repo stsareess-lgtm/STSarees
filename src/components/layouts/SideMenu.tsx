@@ -62,14 +62,14 @@ function SideNavLink({
         className={cn(
           navLinkBase,
           active
-            ? "border-l-[3px] border-primary bg-primary/12 pl-[calc(0.75rem-3px)] font-semibold text-primary"
-            : "border-l-[3px] border-transparent text-foreground hover:bg-primary/10",
+            ? "border-l-[3px] border-[#00542E] bg-[#00542E]/12 pl-[calc(0.75rem-3px)] font-semibold text-[#00542E]"
+            : "border-l-[3px] border-transparent text-foreground hover:bg-[#00542E]/10",
         )}
       >
         <span className="flex-1">{item.title}</span>
         {active ? (
           <Check
-            className="h-4 w-4 shrink-0 text-primary"
+            className="h-4 w-4 shrink-0 text-[#00542E]"
             strokeWidth={2.5}
             aria-hidden
           />
@@ -116,9 +116,9 @@ export function SideMenu({ triggerClassName }: SideMenuProps) {
       <SheetContent
         side="left"
         mobileNavSafe
-        className="flex w-[min(100vw-3rem,320px)] flex-col gap-0 border-r border-primary/15 p-0 sm:max-w-xs"
+        className="flex w-[min(100vw-3rem,320px)] flex-col gap-0 border-r border-[#00542E]/15 p-0 sm:max-w-xs"
       >
-        <SheetHeader className="border-b border-primary/15 bg-primary/[0.06] px-4 py-3 text-left">
+        <SheetHeader className="border-b border-[#00542E]/15 bg-[#00542E]/[0.06] px-4 py-3 text-left">
           <SheetTitle className="text-base font-semibold text-foreground">
             Menu
           </SheetTitle>
@@ -141,7 +141,7 @@ export function SideMenu({ triggerClassName }: SideMenuProps) {
           ))}
         </nav>
 
-        <div className="shrink-0 border-t border-primary/15 bg-muted/30 px-4 py-4">
+        <div className="shrink-0 border-t border-[#00542E]/15 bg-muted/30 px-4 py-4">
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-primary/70">
             Follow us
           </p>

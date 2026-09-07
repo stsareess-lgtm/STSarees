@@ -129,7 +129,7 @@ export function SignInForm() {
         </div>
         <Button
           disabled={isPending}
-          className="w-full bg-primary hover:bg-[#55104A]"
+          className="w-full bg-[#00542E] hover:bg-[#004225]"
         >
           {isPending && (
             <Spinner className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * Post-deploy smoke test for SSR Tex production security + core routes.
+ * Post-deploy smoke test for Sakthi Textile production security + core routes.
  * Usage: node scripts/validate-production-security.mjs [baseUrl]
  */
 
-const BASE = (process.argv[2] ?? "https://www.sairaghavendratex.com").replace(
+const BASE = (process.argv[2] ?? "https://www.sakthitextile.com").replace(
   /\/$/,
   "",
 );
@@ -20,7 +20,7 @@ const REQUIRED_HEADERS = [
 const FORBIDDEN_HEADERS = ["x-powered-by"];
 
 const ROUTES = [
-  { path: "/", expectStatus: 200, expectBody: "SRI SAI RAGHAVENDRA TEX" },
+  { path: "/", expectStatus: 200, expectBody: "Sakthi Textile" },
   { path: "/sign-in", expectStatus: 200, expectBody: "Sign" },
   { path: "/forgot-password", expectStatus: 200, expectBody: "password" },
   { path: "/shop", expectStatus: 200 },
@@ -88,7 +88,7 @@ async function checkRoute(route) {
 }
 
 async function checkHttpsRedirect() {
-  const res = await fetch("http://www.sairaghavendratex.com/", {
+  const res = await fetch("http://www.sakthitextile.com/", {
     redirect: "manual",
   });
   if (![301, 308, 302, 307].includes(res.status)) {

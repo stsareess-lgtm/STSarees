@@ -35,10 +35,10 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         brand: {
-          purple: "#6B1858",
-          "purple-dark": "#55104A",
-          "purple-deep": "#4A1048",
-          gold: "#E8C872",
+          ink: "#262626",
+          "ink-dark": "#111111",
+          cream: "#F5EDE0",
+          gold: "#FFD700",
           "gold-dark": "#C9A227",
         },
         primary: {

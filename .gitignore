@@ -29,10 +29,16 @@ yarn-error.log*
 .env*.local
 .env.vercel*
 .env
+.dev.vars
+**/.dev.vars
 
 # local identity/secrets (never push)
 .cursor/*.local.md
 .cursor/ssr-tex-secrets.local.md
+
+# Cloudflare Workers build/output (deploy from source)
+workers/**/dist/
+workers/**/.wrangler/
 
 # vercel
 .vercel

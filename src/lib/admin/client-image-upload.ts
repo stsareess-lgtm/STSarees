@@ -396,10 +396,7 @@ export async function prepareImageFiles(
   }
 
   let completed = 0;
-  const concurrency = Math.min(
-    PREPARE_CONCURRENCY,
-    Math.max(1, valid.length),
-  );
+  const concurrency = Math.min(PREPARE_CONCURRENCY, Math.max(1, valid.length));
 
   const outcomes = await mapWithConcurrency(
     valid,

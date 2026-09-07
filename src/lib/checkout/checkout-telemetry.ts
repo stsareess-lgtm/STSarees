@@ -5,5 +5,5 @@ export async function appendCheckoutTelemetryEvent(_input: {
   reason?: string | null;
   source?: "client" | "server";
 }) {
-  // Intentionally no-op for SSR Tex until checkout-outcome module is added.
+  // Intentionally no-op for Sakthi Textile until checkout-outcome module is added.
 }
